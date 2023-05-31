@@ -1,5 +1,6 @@
 import SearchPlace from "./searchplace";
 import WeatherDetails from "./weatherdetails";
+import SearchBox from "./searchbox";
 
 function Weather(){
 
@@ -25,8 +26,7 @@ function Weather(){
             </div>
         
             <div className="w-full h-full hidden weather-search ">
-                <button onClick={closeSearch}>Close</button>
-                <input type="search" placeholder="Location..."/>
+               <SearchBox handler={closeSearch}/>
             </div>
         </div>
     )

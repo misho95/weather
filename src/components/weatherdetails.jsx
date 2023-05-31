@@ -3,7 +3,7 @@ import Icon from './icons/cloudy.png';
 function WeatherDetails(){
     return(
         <div className='h-full'>
-            <div className='h-full flex flex-col items-center justify-evenly'>
+            <div className='h-full flex flex-col items-center justify-evenly select-none'>
                 <div className='w-1/2'>
                     <img src={Icon} className='w-full drop-shadow-md'/>
                 </div>

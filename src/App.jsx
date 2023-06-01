@@ -1,12 +1,29 @@
 import Weather from "./components/weather";
 import Details from "./components/details";
+import { useState, useEffect } from "react";
 
 function App() {
 
+  const [ switchTemp , setSwitchTemp ] = useState(true);
+  const [ data, setData ] = useState([]);
+  const [ input, setInput] = useState('london');
+
+ useEffect( () => {
+
+  const key = '7a5d4d1c797a4311aab115534230205';
+  fetch(`http://api.weatherapi.com/v1/current.json?key=${key}&q=${input}&aqi=no`)
+  .then( (res) => res.json())
+  .then( (dat) => setData(dat));
+
+ },[input]);
+
+console.log(switchTemp);
+
   return (
     <div className="flex flex-wrap">
-      <Weather />
-      <Details />
+        <Weather data={data ? data : '' } city={ input } />
+
+        <Details data={data ? data : '' } switchTemp={ switchTemp } setSwitchTemp={ setSwitchTemp } />
     </div>
   )
 }

@@ -6,23 +6,23 @@ function App() {
 
   const [ switchTemp , setSwitchTemp ] = useState(true);
   const [ data, setData ] = useState([]);
-  const [ input, setInput] = useState('london');
+  const [ input, setInput] = useState('London');
 
  useEffect( () => {
 
   const key = '7a5d4d1c797a4311aab115534230205';
+
   fetch(`http://api.weatherapi.com/v1/current.json?key=${key}&q=${input}&aqi=no`)
   .then( (res) => res.json())
   .then( (dat) => setData(dat));
 
  },[input]);
 
-console.log(switchTemp);
+
 
   return (
     <div className="flex flex-wrap">
-        <Weather data={data ? data : '' } city={ input } />
-
+        <Weather data={data ? data : '' } city={ input } setInput={setInput} switchTemp={switchTemp} />
         <Details data={data ? data : '' } switchTemp={ switchTemp } setSwitchTemp={ setSwitchTemp } />
     </div>
   )

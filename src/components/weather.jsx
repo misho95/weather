@@ -2,7 +2,7 @@ import SearchPlace from "./searchplace";
 import WeatherDetails from "./weatherdetails";
 import SearchBox from "./searchbox";
 
-function Weather({data, city}){
+function Weather({data, city, setInput, switchTemp}){
 
     const openSearch = () => {
         const weatherDetails = document.querySelector('.weather-details');
@@ -22,11 +22,11 @@ function Weather({data, city}){
         <div className="w-full min-h-screen sm:w-1/3 bg-slate-800 p-5 flex flex-col">
             <div className="w-full h-full weather-details flex flex-col">
                 <SearchPlace handler={openSearch} />
-                <WeatherDetails data={ data } city={city}/>
+                <WeatherDetails data={ data } city={city} switchTemp={switchTemp}/>
             </div>
         
             <div className="w-full h-full hidden weather-search ">
-               <SearchBox handler={closeSearch}/>
+               <SearchBox handler={closeSearch} setInput={setInput}/>
             </div>
         </div>
     )

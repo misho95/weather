@@ -6,12 +6,12 @@ function HightLightCards(props){
     let hum = false;
 
     if(props.title === 'Wind Status'){
-        subValue = 'kph';
+        subValue = props.switchTemp ? 'kph' : 'mph';
     } else if(props.title === 'Humidity'){
         hum = true;
         subValue = '%';
     } else if(props.title === 'Visibility'){
-        subValue = 'km';
+        subValue =  props.switchTemp ? 'km' : 'mile';
     } else if(props.title === 'Air Pressure'){
         subValue = 'mb';
     }

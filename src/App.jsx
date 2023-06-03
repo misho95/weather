@@ -6,7 +6,7 @@ function App() {
 
   const [ switchTemp , setSwitchTemp ] = useState(true);
   const [ data, setData ] = useState([]);
-  const [ input, setInput] = useState('London');
+  const [ input, setInput] = useState('Tbilisi');
 
  useEffect( () => {
 
